@@ -24,3 +24,25 @@
 
 **Azure Active Directory**: Identity and access management service to help your employees sign in and access resources.
 This structure helps to organize, operate, and manage your resources in Azure in an efficient and secure manner.
+
+## Difference between AWS & Azure
+
+AZs
+- AWS - available zones in a region - not limited to 3
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
