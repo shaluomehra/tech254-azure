@@ -19,7 +19,7 @@
 12. Name = Owner, Shaluo
 13. Click Review + Create
 
-## Step 4: Create Virtual Network
+## Step 3: Create Virtual Network
 1. Search Vnet
 2. Click Create
 2. Subscription is automatically filled in = Azure Training
@@ -41,8 +41,8 @@
 17. Name = Owner
 18. Value = Shaluo
 
-## Step 5: Create Virtual Machines
-1. Search VM
+## Step 4: Create Virtual Machines
+1. Search Virtual Machine
 2. Click Virtual Machine
 3. Click Create
 4. Virtual machine name = `tech254-shaluo-first-app-vm`
