@@ -1,5 +1,5 @@
 # Deploying App on Azure
-
+![2TIER AZURE.png](images%2F2TIER%20AZURE.png)
 ### Step 1: Create a VM
 
 Type Virtual Machines in Search Bar and create a Virtual Machine
@@ -197,6 +197,11 @@ pm2 kill
 # start the app (could also use 'npm start')
 pm2 start app.js
 ```
+## Step 4b 
+
+To make the DB more secure we can change the source to the Public Subnet I.P
+
+![Screenshot 2023-10-25 152804.png](images%2FScreenshot%202023-10-25%20152804.png)
 
 ## Useful Information
 
@@ -210,9 +215,64 @@ Provide the path to the private key file and then copy the command in grey into 
 
 ![Screenshot 2023-10-25 114134.png](images%2FScreenshot%202023-10-25%20114134.png)
 
+### How to Disassociate an I.P address from a VM
 
+Navigate to the VM and click 'Networking'
 
+![Screenshot 2023-10-25 160631.png](images%2FScreenshot%202023-10-25%20160631.png)
 
+## User-defined Routes
+
+### Making a Subnet Private in Azure using UDRs
+
+#### 1. Create a Route Table:
+
+- Go to the Azure portal and navigate to the **Route tables** service
+- Click on `+ Add` to create a new route table
+- Provide the necessary details:
+  - **Name**: [Your Route Table Name]
+  - **Subscription**: [Your Subscription]
+  - **Resource Group**: [Your Resource Group]
+  - **Location**: [Azure Region]
+- Click `Review + create`, then `Create`
+
+#### 2. Add a Custom Route to Block Internet Access:
+
+- After creating the route table, go to its overview page
+- Under `Settings`, choose `Routes` and then `+ Add`
+- Fill in the details for the new route:
+  - **Route name**: `BlockInternetAccess` (or a name of your choice)
+  - **Address prefix**: `0.0.0.0/0` (This represents all IPv4 addresses)
+  - **Next hop type**: `None` (This will drop the traffic)
+- Click `OK` to save the route
+
+#### 3. Associate the Route Table with Your Subnet:
+
+- In the route table's overview page, select `Subnets` under `Settings`, then `+ Associate`
+- Choose the virtual network containing the subnet you want to make private
+- Select the specific subnet.
+- Click `OK` to associate the route table with the subnet
+
+**Note**: Using this configuration will prevent VMs in the associated subnet from accessing the internet. Make sure to test in a non-production environment first!
+
+## Default System Routes in Azure
+
+Azure's system routes control the default flow of traffic. Each subnet in an Azure virtual network is provisioned with a set of default routes
+
+### 1. **Virtual network (VNet) to VNet**:
+This route facilitates communication between resources in different subnets within the same VNet
+- **Address Prefix**: The VNet address space
+- **Next Hop Type**: `Virtual network`
+
+### 2. **VNet to Internet**:
+Allows VMs in the VNet to initiate outbound communication to the internet
+- **Address Prefix**: `0.0.0.0/0` (Represents the entire IPv4 address space)
+- **Next Hop Type**: `Internet`
+
+### 3. **Gateway/Subnet communication**:
+If a virtual network gateway is set up in a VNet, a default route directs traffic from the VNet to the VPN appliance
+- **Address Prefix**: Address space of each local network gateway created in the VNet
+- **Next Hop Type**: `Virtual network gateway`
 
 
 
