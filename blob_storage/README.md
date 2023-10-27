@@ -26,6 +26,53 @@ Once you're in you'll see something like this:
 
 ![Screenshot 2023-10-26 162821.png](..%2Fimages%2FScreenshot%202023-10-26%20162821.png)
 
+## Create a Storage Account 
+```
+az storage account create --name tech254shaluostorage --resource-group tech254 --location uksouth --sku Standard_ZRS`
+```
+
+## Create a Container
+
+We're creating a container and calling it test container
+
+```
+az storage container create \
+     --account-name tech254shaluostorage \
+     --name testcontainer \
+     --auth-mode login
+```
+
+**Create a test file to upload to the container**
+
+`nano test.txt` and input the word `test`
+
+Use this code to upload the test file
+```
+az storage blob upload \
+     --account-name tech254shaluostorage \
+     --container-name testcontainer \
+     --name newtest.txt \
+     --file test.txt \
+     --auth-mode login
+```
+Search for Storage accounts on Azure
+
+![Screenshot 2023-10-27 164529.png](..%2Fimages%2FScreenshot%202023-10-27%20164529.png)
+
+Click on your Storage folder
+
+![Screenshot 2023-10-27 164545.png](..%2Fimages%2FScreenshot%202023-10-27%20164545.png)
+
+Click on 'Containers' then you can see your test container that we created earlier
+![Screenshot 2023-10-27 165101.png](..%2Fimages%2FScreenshot%202023-10-27%20165101.png)
+
+We need to change the 'Access Level' to 'blob' so we can access the Public I.P
+
+![Screenshot 2023-10-27 165311.png](..%2Fimages%2FScreenshot%202023-10-27%20165311.png)
+
+Now if you go into the `testcontainer` we can see our test file and if you follow the URL you can see the text on the web page
+
+
 
 ## Blockers
 
