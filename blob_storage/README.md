@@ -57,18 +57,18 @@ az storage blob upload \
 ```
 Search for Storage accounts on Azure
 
-![Screenshot 2023-10-27 164529.png](..%2Fimages%2FScreenshot%202023-10-27%20164529.png)
+![Screenshot 2023-10-27 164529.png](images%2FScreenshot%202023-10-27%20164529.png)
 
 Click on your Storage folder
 
-![Screenshot 2023-10-27 164545.png](..%2Fimages%2FScreenshot%202023-10-27%20164545.png)
+![Screenshot 2023-10-27 164545.png](images%2FScreenshot%202023-10-27%20164545.png)
 
 Click on 'Containers' then you can see your test container that we created earlier
-![Screenshot 2023-10-27 165101.png](..%2Fimages%2FScreenshot%202023-10-27%20165101.png)
+![Screenshot 2023-10-27 165101.png](images%2FScreenshot%202023-10-27%20165101.png)
 
 We need to change the 'Access Level' to 'blob' so we can access the Public I.P
 
-![Screenshot 2023-10-27 165311.png](..%2Fimages%2FScreenshot%202023-10-27%20165311.png)
+![Screenshot 2023-10-27 165311.png](images%2FScreenshot%202023-10-27%20165311.png)
 
 Now if you go into the `testcontainer` we can see our test file and if you follow the URL you can see the text on the web page
 
