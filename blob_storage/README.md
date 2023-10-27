@@ -24,7 +24,7 @@ You will receive instructions on your Git Bash terminal, follow the steps.
 
 Once you're in you'll see something like this: 
 
-![Screenshot 2023-10-26 162821.png](..%2Fimages%2FScreenshot%202023-10-26%20162821.png)
+![Screenshot 2023-10-26 162821.png](images%2FScreenshot%202023-10-26%20162821.png)
 
 ## Create a Storage Account 
 ```
